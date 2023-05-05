@@ -1,0 +1,15 @@
+div{
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    div{
+        width: 20%;
+        border-top: 4px solid #B5D8F7;
+    }
+    h1{
+        text-align: center;
+    }
+    
+}

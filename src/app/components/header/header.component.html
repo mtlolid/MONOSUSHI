@@ -1,0 +1,59 @@
+<header>
+    <div class="logo"></div>
+
+    <div class="categories">
+        <div class="category" [routerLink]="[ '/actions' ]" >
+            <div><img [src]="'https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/images%2Fnav-img-gift.svg?alt=media&token=92442c59-79ba-4a1b-abee-4661a21eca45'"></div>
+            <p>Акції</p>
+        </div>
+
+        <div [routerLink]="[ goTo(category.path) || null ]" *ngFor="let category of categoryArray" class="category">
+            <div><img [routerLink]="[ 'category.path']" [src]="category.picture"></div>
+            <p>{{ category.name }}</p>
+        </div>
+
+        <div class="dropdown" (click)="changeDropDown()"></div>
+
+        <div class="dropdownWrap">
+            <div class="dropdownMenu" *ngIf="dropDownCheck">
+                <div class="wrap">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/images%2F75519.png?alt=media&token=a9136191-1bac-4d51-a55e-b6ef94bf8f45" (click)="changeDropDown()">
+                    <ul>
+                        <li [routerLink]="[ '/dostavka-ta-oplata']" (click)="changeDropDown()">
+                            <p>Доставка та оплата</p>
+                        </li>
+                        <li  [routerLink]="[ '/about-us']" (click)="changeDropDown()">
+                            <p>Про нас</p>
+                        </li>
+                        <li [routerLink]="[ '/actions']" (click)="changeDropDown()">
+                            <p>Акції</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        
+
+        
+
+
+    </div>
+
+    <div class="info">
+        <div class="phone"></div>
+        <div class="time">
+            <b>(097) 878 08 37</b>
+            <P>Працюємо з <b>11:00</b> до <b>23:59</b></P>
+        </div>
+        <div class="login" [routerLink]="[ '/admin']"></div>
+    </div>
+
+    <div class="checkout">
+        <div class="bucket"></div>
+        <div class="summ">
+            <b>0</b>
+            <span> грн</span>
+        </div>
+    </div>
+</header>

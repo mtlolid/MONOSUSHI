@@ -1,0 +1,40 @@
+div{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .heading{
+        width: 30%;
+        border-top: 4px solid #B5D8F7;
+        text-align: center;
+    }
+
+    .deliveryzone{
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        .zone{
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            img{
+                width: 100px;
+            }
+        }
+    }
+    
+}
+
+.green{
+    color: #27AE60;
+}
+
+.yellow{
+    color: #F2C94C;
+}
+
+.red{
+    color: #FF0000;
+}

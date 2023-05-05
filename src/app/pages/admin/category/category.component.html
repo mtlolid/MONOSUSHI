@@ -1,0 +1,68 @@
+<div class="wrap">
+
+    <button  (click)="changeAddCheck()"  class="addAction">ДОДАТИ КАТЕГОРІЮ</button>
+
+    <div class="formWrap" *ngIf="addCheck">
+        <form [formGroup]="categoryForm">
+            <div class="top">
+                <input formControlName = "name" type="text" placeholder="*Назва">
+                <input formControlName = "path" type="text" placeholder="*Шлях">
+            </div>
+            <div class="bottom">
+                <div>
+                    <p>Progress: {{ uploadPercent }}%</p>
+                    <input (change)="upload($event)" formControlName = "photo" type="file">
+                    <input class="hiden" formControlName = "photoHiden" type="text">
+                </div>
+                <input (click)="createCategory()" [disabled] = "categoryForm.invalid"  type="submit" [value]="editStatus ? 'ЗБЕРЕГТИ' : 'ДОДАТИ' ">
+            </div>
+
+        </form>
+    </div>
+
+    <table *ngIf="!addCheck">
+        <div>
+            <th>
+                <p>№</p>
+            </th>
+            <th>
+                <p>Назва</p>
+            </th>
+            <th>
+                <p>Шлях</p>
+            </th>
+            <th>
+                <p></p>
+            </th>
+            <th>
+                <p>Картинка</p>
+            </th>
+            <th>
+                <p>Дія</p>
+            </th>
+
+        </div>
+        <div *ngFor="let category of categoryArray">
+            <td>
+                <p>{{ category.id }}</p>
+            </td>
+            <td>
+                <p>{{ category.name }}</p>
+            </td>
+            <td>
+                <p>{{ category.path }}</p>
+            </td>
+            <td>
+                <p></p>
+            </td>
+            <td>
+                <img [src]="category.picture">
+            </td>
+            <td class="buttons">
+                <p (click)="editCategory(category)">Редагувати</p>
+                <p (click)="deleteCategory(category.id)">Видалити</p>
+            </td>
+        </div>
+    </table>
+
+</div>

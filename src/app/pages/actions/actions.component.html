@@ -1,0 +1,19 @@
+<div class="header">
+    <div>
+        <h1>Акції</h1>
+    </div>
+</div>
+
+<div class="wrap">
+    <div class="card" *ngFor="let action of actionsArray">
+        <img [src]="action.picture">
+        <div class="top">
+            <span>{{ action.date | date: "MM YYYY"}}</span>
+            <span>{{ action.name }}</span>
+        </div>
+        <div class="bottom">
+            <b>{{ action.title}}</b>
+            <p>{{ action.mainText }}</p>
+        </div>
+    </div>
+</div>

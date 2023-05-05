@@ -1,0 +1,69 @@
+<div class="wrap">
+
+    <button  (click)="changeAddCheck()"  class="addAction">ДОДАТИ АКЦІЮ</button>
+
+    <div class="formWrap" *ngIf="addCheck">
+        <form [formGroup]="actionForm">
+            <div class="top">
+                <input formControlName = "name" type="text" placeholder="*Назва">
+                <input formControlName = "title" type="text" placeholder="*Заголовок">
+            </div>
+            <div class="bottom">
+                <textarea formControlName = "mainText" placeholder="*Опис" cols="30" rows="10"></textarea>
+                <div>
+                    <p>Progress: {{ uploadPercent }}%</p>
+                    <input (change)="upload($event)" formControlName = "photo" type="file">
+                    <input class="hiden" type="text" formControlName="photoHiden">
+                </div>
+                <input  (click)="createAction()" [disabled] = "actionForm.invalid"  type="submit" [value]="editStatus ? 'ЗБЕРЕГТИ' : 'ДОДАТИ' ">
+            </div>
+
+        </form>
+    </div>
+
+    <table *ngIf="!addCheck">
+        <div>
+            <th>
+                <p>Дата</p>
+            </th>
+            <th>
+                <p>Назва</p>
+            </th>
+            <th>
+                <p>Заголовок</p>
+            </th>
+            <th>
+                <p>Опис</p>
+            </th>
+            <th>
+                <p>Картинка</p>
+            </th>
+            <th>
+                <p>Дія</p>
+            </th>
+
+        </div>
+        <div *ngFor="let elem of actionArray">
+            <td>
+                <p>{{ elem.date | date: "MM YYYY"}}</p>
+            </td>
+            <td>
+                <p>{{ elem.name }}</p>
+            </td>
+            <td>
+                <p>{{ elem.title }}</p>
+            </td>
+            <td>
+                <p>{{ elem.mainText }}</p>
+            </td>
+            <td>
+                <img [src]="elem.picture">
+            </td>
+            <td class="buttons">
+                <p (click)="editAction(elem)" >Редагувати</p>
+                <p (click)="deleteAction(elem.id)" >Видалити</p>
+            </td>
+        </div>
+    </table>
+
+</div>

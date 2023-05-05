@@ -1,0 +1,38 @@
+{
+  "actions": [
+    {
+      "id": 1,
+      "date": "Fri May 05 2023 23:50:01 GMT+0300 (за східноєвропейським літнім часом)",
+      "name": "Акція",
+      "title": "Акція",
+      "mainText": "акція акція акція ",
+      "picture": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/actions%2Fsushi-polza-i-vred1653924777.jpg?alt=media&token=53b1ecee-ae24-457f-ade4-559471990c03"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Роли",
+      "path": "rolls",
+      "picture": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/categories%2Fnav-img-rolls.svg?alt=media&token=8082b2af-dcd8-44ee-959f-41627020d527"
+    },
+    {
+      "id": 2,
+      "name": "Сети",
+      "path": "sets",
+      "picture": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/categories%2Fnav-img-sets.svg?alt=media&token=7610f6bd-f0ac-4b08-b513-f4702b53ddd6"
+    },
+    {
+      "id": 3,
+      "name": "Напої",
+      "path": "drinks",
+      "picture": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/categories%2Fnav-img-drinks.svg?alt=media&token=58e049e0-4707-4a9c-9794-e6c400f8305b"
+    },
+    {
+      "id": 4,
+      "name": "Соуси",
+      "path": "sauces",
+      "picture": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/categories%2Ficon.svg?alt=media&token=d55312a8-34e9-448c-b8fa-50b51eeb660b"
+    }
+  ]
+}

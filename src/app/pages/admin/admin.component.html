@@ -1,0 +1,20 @@
+<div class="wrap">
+    <div class="left">
+        <div [routerLink]="[ 'actions']" [routerLinkActive]="['adminActive']" class="option">
+            <p>Акції</p>
+        </div>
+        <div [routerLink]="[ 'category']" [routerLinkActive]="['adminActive']" class="option">
+            <p>Категорії</p>
+        </div>
+        <div class="option">
+            <p>Товари</p>
+        </div>
+        <div class="option">
+            <p>Замовлення</p>
+        </div>
+
+        <button class="exit" [routerLink]="['/']">ВИХІД</button>
+    </div>
+    <router-outlet></router-outlet>
+</div>
+

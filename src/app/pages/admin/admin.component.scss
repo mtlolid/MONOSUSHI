@@ -1,0 +1,37 @@
+.wrap{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+
+    .left{
+        height: 300px;
+        width: 15%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 30px;
+
+        .option{
+            width: 100%;
+            height: 20%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid gray;
+            border-bottom: 1px solid gray;
+        }
+
+        .exit{
+            border: none;
+            margin-top: 30px;
+            width: 90px;
+            height: 60px;
+            background-color: #AFD5F5;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+    }
+}
+
+
+
