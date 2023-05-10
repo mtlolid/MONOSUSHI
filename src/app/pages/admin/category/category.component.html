@@ -10,7 +10,7 @@
             </div>
             <div class="bottom">
                 <div>
-                    <p>Progress: {{ uploadPercent }}%</p>
+                    <p>Progress: {{ uploaded ? "Ready!" : "..." }}</p>
                     <input (change)="upload($event)" formControlName = "photo" type="file">
                     <input class="hiden" formControlName = "photoHiden" type="text">
                 </div>

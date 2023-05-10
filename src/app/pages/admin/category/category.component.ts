@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ICategoryPost } from 'src/app/shared/category.interface';
 import { DataServiceService } from 'src/app/shared/data-service.service';
 import { Storage, getDownloadURL, percentage, ref, uploadBytesResumable } from '@angular/fire/storage';
+import { ImagesService } from 'src/app/shared/images/images.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class CategoryComponent {
   
   public categoryForm !: FormGroup;
   public addCheck = false;
-  public uploadPercent !: number;
+  public uploaded = false;
   public editStatus = false;
   public curentEditId = 0;
   public curentEditElem!: ICategoryPost;
@@ -26,6 +27,7 @@ export class CategoryComponent {
   constructor(
     private fb: FormBuilder,
     private categoryService: DataServiceService,
+    private imageService: ImagesService,
     private storage: Storage
   ){};
 
@@ -100,41 +102,17 @@ export class CategoryComponent {
 
   upload(event: any): void {
     const file = event.target.files[0];
-    this.uploadPhoto('categories', file.name, file)
+    this.imageService.uploadPhoto('categories', file.name, file)
       .then(data => {
         this.categoryForm.patchValue({
           photoHiden: data
         });
+        this.uploaded = true;
       })
       .catch(err => {
         console.log(err)
       })
   }
-
-  async uploadPhoto(folder: string, name: string, file: File | null): Promise<string> {
-    const path = `${folder}/${name}`;
-    let url = '';
-
-    if (file) {
-      try {
-        const storageRef = ref(this.storage, path);
-        const task = uploadBytesResumable(storageRef, file);
-        percentage(task).subscribe(data => {
-          this.uploadPercent = data.progress
-        });
-        await task;
-        url = await getDownloadURL(storageRef);
-
-      } catch (e: any) {
-        console.error(e);
-      }
-    } else {
-      console.log('error');
-    }
-
-    return Promise.resolve(url);
-
-  };
 
   valueByControl(control: string): string {
     return this.categoryForm.get(control)?.value

@@ -6,7 +6,7 @@
       "name": "Акція",
       "title": "Акція",
       "mainText": "акція акція акція ",
-      "picture": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/actions%2Fsushi-polza-i-vred1653924777.jpg?alt=media&token=53b1ecee-ae24-457f-ade4-559471990c03"
+      "picture": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/actions%2F240376-homemade-pepperoni-pizza-Beauty-3x4-1-6ae54059c23348b3b9a703b6a3067a44.jpg?alt=media&token=4919b7bd-0a1c-4457-9c71-6f32f3ee337f"
     }
   ],
   "categories": [
@@ -33,6 +33,48 @@
       "name": "Соуси",
       "path": "sauces",
       "picture": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/categories%2Ficon.svg?alt=media&token=d55312a8-34e9-448c-b8fa-50b51eeb660b"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "category": "Роли",
+      "name": "test",
+      "path": "test",
+      "ingredients": "test test test",
+      "mass": "9999",
+      "price": "9999",
+      "picturePath": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/categories%2FDragon_Rolls_1024x1024.webp?alt=media&token=2acb3ded-7a36-4552-b105-069f2ac52201"
+    },
+    {
+      "id": 2,
+      "category": "Роли",
+      "name": "Філадельфія з вугрем",
+      "path": "    border: 1px solid #000;",
+      "ingredients": "Рис, крем сир, авокадо, вугор, унагі соус, кунжут",
+      "mass": "280",
+      "price": "267",
+      "picturePath": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/categories%2F1.-filadelfiya-z-lososem.jpg.pagespeed.ce.axvTz8qDqj.jpg?alt=media&token=4ccc4f35-ea28-4a7d-bcfd-82d9f339fcff"
+    },
+    {
+      "id": 3,
+      "category": "Роли",
+      "name": "test",
+      "path": "test",
+      "ingredients": "testtesttest",
+      "mass": "232",
+      "price": "123",
+      "picturePath": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/categories%2F1.-filadelfiya-z-lososem.jpg.pagespeed.ce.axvTz8qDqj.jpg?alt=media&token=7f98db24-9c62-4b8f-afc6-39a452823cf7"
+    },
+    {
+      "id": 4,
+      "category": "Роли",
+      "name": "test",
+      "path": "test",
+      "ingredients": "testtesttest",
+      "mass": "222",
+      "price": "111",
+      "picturePath": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/categories%2F1.-filadelfiya-z-lososem.jpg.pagespeed.ce.axvTz8qDqj.jpg?alt=media&token=0d1c2982-e891-497e-85a0-b77aa2756f7f"
     }
   ]
 }

@@ -13,6 +13,8 @@ import { RollsComponent } from './pages/product-category/rolls/rolls.component';
 import { SetsComponent } from './pages/product-category/sets/sets.component';
 import { DrinksComponent } from './pages/product-category/drinks/drinks.component';
 import { SaucesComponent } from './pages/product-category/sauces/sauces.component';
+import { ProductComponent } from './pages/admin/product/product.component';
+
 
 
 const routes: Routes = [
@@ -30,6 +32,7 @@ const routes: Routes = [
     path: "admin", component: AdminComponent, children: [
       { path: "actions", component: ActionComponent },
       { path: "category", component: CategoryComponent },
+      { path: "product", component: ProductComponent },
       { path: '', pathMatch: 'full', redirectTo: 'category' }
     ]
   },

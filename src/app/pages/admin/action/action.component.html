@@ -11,7 +11,7 @@
             <div class="bottom">
                 <textarea formControlName = "mainText" placeholder="*Опис" cols="30" rows="10"></textarea>
                 <div>
-                    <p>Progress: {{ uploadPercent }}%</p>
+                    <p>Progress: {{ uploaded ? "Ready!" : "..." }}</p>
                     <input (change)="upload($event)" formControlName = "photo" type="file">
                     <input class="hiden" type="text" formControlName="photoHiden">
                 </div>

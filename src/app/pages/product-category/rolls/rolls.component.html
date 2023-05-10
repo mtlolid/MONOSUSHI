@@ -1,1 +1,32 @@
-<p>rolls works!</p>
+<div class="options">
+    <div class="option active">Всі</div>
+    <div class="option">Філадельфія</div>
+    <div class="option">Каліфорнія</div>
+    <div class="option">Запечені</div>
+    <div class="option">Фірмові</div>
+    <div class="option">Макі</div>
+    <div class="option">Преміум</div>
+</div>
+
+<div class="shop">
+    <div class="card" *ngFor="let product of productArray">
+        <img [src]="product.picturePath">
+
+        <h1>{{ product.name }}</h1>
+
+        <div class="top">
+            <p>{{ product.ingredients }}</p>
+            <p class="mass">{{ product.mass }}г</p>
+        </div>
+
+        <div class="order">
+            <span>{{ product.price }} грн</span>
+            <div class="count">
+                <input type="button" value="-">
+                <p>0</p>
+                <input type="button" value="+">
+            </div>
+            <input type="button" value="ЗАМОВИТИ">
+        </div>
+    </div>
+</div>

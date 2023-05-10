@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IActionPost } from 'src/app/shared/action.interface';
 import { DataServiceService } from 'src/app/shared/data-service.service';
 import { Storage, getDownloadURL, percentage, ref, uploadBytesResumable } from '@angular/fire/storage';
+import { ImagesService } from 'src/app/shared/images/images.service';
 
 @Component({
   selector: 'app-action',
@@ -13,7 +14,7 @@ export class ActionComponent {
 
   public actionForm !: FormGroup;
   public addCheck = false;
-  public uploadPercent !: number;
+  public uploaded = false;
   public editStatus = false;
   private curentEditId = 0;
   private curentEditElem!: IActionPost;
@@ -24,6 +25,7 @@ export class ActionComponent {
   constructor(
     private fb: FormBuilder,
     private actionService: DataServiceService,
+    private imageService: ImagesService,
     private storage: Storage
 
   ) { };
@@ -105,41 +107,19 @@ export class ActionComponent {
 
   upload(event: any): void {
     const file = event.target.files[0];
-    this.uploadPhoto('actions', file.name, file)
+    this.imageService.uploadPhoto('actions', file.name, file)
       .then(data => {
         this.actionForm.patchValue({
           photoHiden: data
         });
+        this.uploaded = true;
       })
       .catch(err => {
         console.log(err)
       })
   }
 
-  async uploadPhoto(folder: string, name: string, file: File | null): Promise<string> {
-    const path = `${folder}/${name}`;
-    let url = '';
-
-    if (file) {
-      try {
-        const storageRef = ref(this.storage, path);
-        const task = uploadBytesResumable(storageRef, file);
-        percentage(task).subscribe(data => {
-          this.uploadPercent = data.progress
-        });
-        await task;
-        url = await getDownloadURL(storageRef);
-
-      } catch (e: any) {
-        console.error(e);
-      }
-    } else {
-      console.log('error');
-    }
-
-    return Promise.resolve(url);
-
-  };
+  
 
   valueByControl(control: string): string {
     return this.actionForm.get(control)?.value

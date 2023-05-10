@@ -23,6 +23,7 @@ import { RollsComponent } from './pages/product-category/rolls/rolls.component';
 import { SetsComponent } from './pages/product-category/sets/sets.component';
 import { DrinksComponent } from './pages/product-category/drinks/drinks.component';
 import { SaucesComponent } from './pages/product-category/sauces/sauces.component';
+import { ProductComponent } from './pages/admin/product/product.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { SaucesComponent } from './pages/product-category/sauces/sauces.componen
     SetsComponent,
     DrinksComponent,
     SaucesComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,

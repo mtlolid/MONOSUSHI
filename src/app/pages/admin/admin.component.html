@@ -1,12 +1,12 @@
 <div class="wrap">
     <div class="left">
-        <div [routerLink]="[ 'actions']" [routerLinkActive]="['adminActive']" class="option">
+        <div [routerLink]="[ 'actions' ]" [routerLinkActive]="['adminActive']" class="option">
             <p>Акції</p>
         </div>
-        <div [routerLink]="[ 'category']" [routerLinkActive]="['adminActive']" class="option">
+        <div [routerLink]="[ 'category' ]" [routerLinkActive]="['adminActive']" class="option">
             <p>Категорії</p>
         </div>
-        <div class="option">
+        <div [routerLink]="[ 'product' ]" [routerLinkActive]="['adminActive']" class="option">
             <p>Товари</p>
         </div>
         <div class="option">
@@ -17,4 +17,3 @@
     </div>
     <router-outlet></router-outlet>
 </div>
-

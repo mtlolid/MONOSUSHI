@@ -1,0 +1,93 @@
+<div class="wrap">
+
+    <button (click)="changeAddCheck()" class="addAction">ДОДАТИ ПРОДУКТ</button>
+
+    <div class="formWrap" *ngIf="addCheck">
+        <form [formGroup]="productForm">
+        
+            <input class="readonly" formControlName="category" type="text" placeholder="*Назва" readonly>
+
+            <div class="top">
+                <input formControlName="name" type="text" placeholder="*Назва">
+                <input formControlName="path" type="text" placeholder="*Шлях">
+            </div>
+
+            <input formControlName="ingredients" type="text" placeholder="*Інгрідієнти">
+            <div class="middle">
+                <input formControlName="mass" type="text" placeholder="*Вага">
+                <input formControlName="price" type="text" placeholder="*Ціна">
+            </div>
+            <div class="bottom">
+                <div>
+                    <p>Progress: {{ uploaded ? "Ready!" : "..." }}</p>
+                    <input (change)="upload($event)" formControlName="picture" type="file">
+                    <input class="hiden" formControlName = "picturePath" type="text">
+                </div>
+                <input (click)="createProduct()" [disabled]="productForm.invalid" type="submit"
+                    [value]="editStatus ? 'ЗБЕРЕГТИ' : 'ДОДАТИ' ">
+            </div>
+
+        </form>
+    </div>
+
+    <table *ngIf="!addCheck">
+        <div>
+            <th>
+                <p>№</p>
+            </th>
+            <th>
+                <p>Категорія</p>
+            </th>
+            <th>
+                <p>Назва</p>
+            </th>
+            <th>
+                <p>Інгрідієнти</p>
+            </th>
+            <th>
+                <p>Вага</p>
+            </th>
+            <th>
+                <p>Ціна</p>
+            </th>
+            <th>
+                <p>Картинка</p>
+            </th>
+            <th>
+                <p>Дії</p>
+            </th>
+
+        </div>
+        <div *ngFor="let product of productArray">
+            <td>
+                <p>{{ product.id }}</p>
+            </td>
+            <td>
+                <p>{{ product.category }}</p>
+            </td>
+            <td>
+                <p>{{ product.name }}</p>
+            </td>
+            <td>
+                <p>{{ product.ingredients }}</p>
+
+            </td>
+            <td>
+                <p>{{ product.mass }}</p>
+
+            </td>
+            <td>
+                <p>{{ product.price }}</p>
+
+            </td>
+            <td>
+                <img [src]="product.picturePath">
+            </td>
+            <td class="buttons">
+                <p (click)="editProduct(product)">Редагувати</p>
+                <p (click)="deleteProduct(product.id)">Видалити</p>
+            </td>
+        </div>
+    </table>
+
+</div>
