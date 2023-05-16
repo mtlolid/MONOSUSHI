@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +26,8 @@ import { SetsComponent } from './pages/product-category/sets/sets.component';
 import { DrinksComponent } from './pages/product-category/drinks/drinks.component';
 import { SaucesComponent } from './pages/product-category/sauces/sauces.component';
 import { ProductComponent } from './pages/admin/product/product.component';
+import { ActionsInfoComponent } from './pages/actions-info/actions-info.component';
+import { ProductCategoryInfoComponent } from './pages/product-category-info/product-category-info.component';
 
 
 @NgModule({
@@ -44,10 +48,13 @@ import { ProductComponent } from './pages/admin/product/product.component';
     DrinksComponent,
     SaucesComponent,
     ProductComponent,
+    ActionsInfoComponent,
+    ProductCategoryInfoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),

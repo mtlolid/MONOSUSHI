@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IActionPost } from 'src/app/shared/action.interface';
-import { DataServiceService } from 'src/app/shared/data-service.service';
+import { IActionPost } from 'src/app/shared/interfaces/action.interface';
 import { Storage, getDownloadURL, percentage, ref, uploadBytesResumable } from '@angular/fire/storage';
 import { ImagesService } from 'src/app/shared/images/images.service';
+import { ActionService } from 'src/app/shared/services/action/action.service';
 
 @Component({
   selector: 'app-action',
@@ -24,7 +24,7 @@ export class ActionComponent {
 
   constructor(
     private fb: FormBuilder,
-    private actionService: DataServiceService,
+    private actionService: ActionService,
     private imageService: ImagesService,
     private storage: Storage
 

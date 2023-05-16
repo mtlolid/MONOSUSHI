@@ -1,0 +1,18 @@
+<ul class="breadcrumb">
+    <li [routerLink]="['']" class="breadcrumb-item">Головна</li>
+    <li [routerLink]="['/actions']" class="breadcrumb-item">Акції</li>
+    <li class="breadcrumb-item">{{ currentAction.title }}</li>
+</ul>
+
+<div class="wrap">
+    <div class="header">
+        <h1>{{ currentAction.title }}</h1>
+    </div>
+    <img [src]="currentAction.picture">
+    <div class="list">
+        <ul>
+            <li>{{ currentAction.mainText }}</li>
+        </ul>
+    </div>
+
+</div>

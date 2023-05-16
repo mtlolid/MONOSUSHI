@@ -2,25 +2,26 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IProductPost } from 'src/app/shared/interfaces/product.interface';
 import { OrderService } from 'src/app/shared/order/order.service';
-import { ProductService } from 'src/app/shared/services/product/product.service';
+import { ActionService } from 'src/app/shared/services/action/action.service';
 
 @Component({
-  selector: 'app-rolls',
-  templateUrl: './rolls.component.html',
-  styleUrls: ['./rolls.component.scss']
+  selector: 'app-product-category-info',
+  templateUrl: './product-category-info.component.html',
+  styleUrls: ['./product-category-info.component.scss']
 })
-export class RollsComponent {
+export class ProductCategoryInfoComponent {
 
-  public productArray: Array<IProductPost> = [];
+  public currentProduct!: IProductPost;
 
   constructor(
-    private productService: ProductService,
     private activatedRoute: ActivatedRoute,
     private orderService: OrderService
-  ) { }
+  ){}
 
   ngOnInit(): void {
-    this.getProduct();
+    this.activatedRoute.data.subscribe(response => {
+      this.currentProduct = response['productInfo'];
+    }) 
   }
 
   productCount(product: IProductPost, value: boolean): void {
@@ -48,12 +49,5 @@ export class RollsComponent {
     product.count = 1;
     this.orderService.changeBasket.next(true);
   }
-
-  getProduct(): void {
-    this.productService.getAllProducts().subscribe(
-      data => { this.productArray = data }
-    )
-  };
-
 
 }

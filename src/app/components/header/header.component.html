@@ -2,8 +2,10 @@
     <div class="logo"></div>
 
     <div class="categories">
-        <div class="category" [routerLink]="[ '/actions' ]" >
-            <div><img [src]="'https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/images%2Fnav-img-gift.svg?alt=media&token=92442c59-79ba-4a1b-abee-4661a21eca45'"></div>
+        <div class="category" [routerLink]="[ '/actions' ]">
+            <div><img
+                    [src]="'https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/images%2Fnav-img-gift.svg?alt=media&token=92442c59-79ba-4a1b-abee-4661a21eca45'">
+            </div>
             <p>Акції</p>
         </div>
 
@@ -17,12 +19,13 @@
         <div class="dropdownWrap">
             <div class="dropdownMenu" *ngIf="dropDownCheck">
                 <div class="wrap">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/images%2F75519.png?alt=media&token=a9136191-1bac-4d51-a55e-b6ef94bf8f45" (click)="changeDropDown()">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/images%2F75519.png?alt=media&token=a9136191-1bac-4d51-a55e-b6ef94bf8f45"
+                        (click)="changeDropDown()">
                     <ul>
                         <li [routerLink]="[ '/dostavka-ta-oplata']" (click)="changeDropDown()">
                             <p>Доставка та оплата</p>
                         </li>
-                        <li  [routerLink]="[ '/about-us']" (click)="changeDropDown()">
+                        <li [routerLink]="[ '/about-us']" (click)="changeDropDown()">
                             <p>Про нас</p>
                         </li>
                         <li [routerLink]="[ '/actions']" (click)="changeDropDown()">
@@ -32,11 +35,6 @@
                 </div>
             </div>
         </div>
-
-        
-
-        
-
 
     </div>
 
@@ -49,11 +47,37 @@
         <div class="login" [routerLink]="[ '/admin']"></div>
     </div>
 
-    <div class="checkout">
-        <div class="bucket"></div>
+    <div class="checkout" (click)="checkOutToggle()">
+        <div class="bucket">
+            <div class="total">{{ basket.length }}</div>
+        </div>
+
         <div class="summ">
-            <b>0</b>
+            <b>{{ total }}</b>
             <span> грн</span>
         </div>
     </div>
+
+    <div class="bucketWrap" *ngIf="checkOutCheck">
+        <div class="bucket">
+            <div *ngFor="let product of basket" class="product">
+                <img [src]="product.picturePath">
+                <b>{{ product.name }}</b>
+                <div class="buttons">
+                    <input (click)="productCount(product, false)" type="button" value="–">
+                    <input [value]="product.count" type="text">
+                    <input (click)="productCount(product, true)" type="button" value="+">
+                </div>
+                <p><b>{{ product.price * product.count }}</b> грн</p>
+                <img class="bin" src="https://cdn-icons-png.flaticon.com/512/3515/3515498.png">
+            </div>
+            <div class="checkout">
+                <p>Сума: <b>{{ total }}</b> грн</p>
+                <input type="button" value="ОФОРМИТИ ЗАМОВЛЕННЯ">
+            </div>
+        </div>
+    </div>
+
+
+
 </header>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IActionPost } from 'src/app/shared/action.interface';
-import { DataServiceService } from 'src/app/shared/data-service.service';
+import { IActionPost } from 'src/app/shared/interfaces/action.interface';
+import { ActionService } from 'src/app/shared/services/action/action.service';
 
 @Component({
   selector: 'app-actions',
@@ -12,7 +12,7 @@ export class ActionsComponent {
   public actionsArray: Array<IActionPost> = [];
 
   constructor(
-    private actionService: DataServiceService
+    private actionService: ActionService
   ){}
 
   ngOnInit(): void {

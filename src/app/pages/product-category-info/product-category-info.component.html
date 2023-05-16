@@ -1,0 +1,32 @@
+<ul class="breadcrumb">
+    <li [routerLink]="['']" class="breadcrumb-item">Головна</li>
+    <li [routerLink]="['/product-category/rolls']" class="breadcrumb-item">Роли</li>
+    <li [routerLink]="['/product-category/rolls']" class="breadcrumb-item">Філадельфія</li>
+    <li class="breadcrumb-item">{{ currentProduct.name }}</li>
+</ul>
+
+<div class="wrap">
+    <img [src]="currentProduct.picturePath">
+    <div class="text">
+        <h2>{{ currentProduct.name }}</h2>
+        
+        <div>
+            <span class="bold blue">Склад: </span><span>{{ currentProduct.ingredients }}</span>
+        </div>
+
+        <div>
+            <span class="bold blue">Вага: </span><span>{{ currentProduct.mass }}</span>
+        </div>
+
+        <div class="bottom">
+            <span class="bold">{{ currentProduct.price }} грн</span>
+
+            <div class="buttons">
+                <input (click)="productCount(currentProduct, false)" type="button" value="–">
+                <input [(ngModel)]="currentProduct.count" type="text">
+                <input (click)="productCount(currentProduct, true)" type="button" value="+">
+            </div>
+            <input (click)="addToBasket(currentProduct)" type="button" value="ЗАМОВИТИ">
+        </div>
+    </div>
+</div>

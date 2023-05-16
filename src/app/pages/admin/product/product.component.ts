@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DataServiceService } from 'src/app/shared/data-service.service';
 import { Storage, getDownloadURL, percentage, ref, uploadBytesResumable } from '@angular/fire/storage';
-import { IProductPost } from 'src/app/shared/product.interface';
+import { IProductPost } from 'src/app/shared/interfaces/product.interface';
 import { ImagesService } from 'src/app/shared/images/images.service';
+import { ProductService } from 'src/app/shared/services/product/product.service';
 
 @Component({
   selector: 'app-product',
@@ -25,14 +25,14 @@ export class ProductComponent {
 
   constructor(
     private fb: FormBuilder,
-    private productService: DataServiceService,
+    private productService: ProductService,
     private imageService: ImagesService,
     private storage: Storage
   ) { };
 
   initProductForm(): void {
     this.productForm = this.fb.group({
-      category: ["Роли", Validators.required],
+      category: ["rolls", Validators.required],
       name: [null, Validators.required],
       path: [null, Validators.required],
       ingredients: [null, Validators.required],
@@ -63,7 +63,8 @@ export class ProductComponent {
         ingredients: this.productForm.value.ingredients,
         mass: this.productForm.value.mass,
         price: this.productForm.value.price,
-        picturePath: this.productForm.value.picturePath
+        picturePath: this.productForm.value.picturePath,
+        count: 1
       }
       
       this.productService.updateProduct(product, this.curentEditId).subscribe(
@@ -79,7 +80,8 @@ export class ProductComponent {
         ingredients: this.productForm.value.ingredients,
         mass: this.productForm.value.mass,
         price: this.productForm.value.price,
-        picturePath: this.productForm.value.picturePath
+        picturePath: this.productForm.value.picturePath,
+        count: 1
       }
 
       this.productService.createProduct(product).subscribe(

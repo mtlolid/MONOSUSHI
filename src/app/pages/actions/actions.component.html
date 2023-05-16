@@ -5,7 +5,7 @@
 </div>
 
 <div class="wrap">
-    <div class="card" *ngFor="let action of actionsArray">
+    <div class="card" [routerLink]="[ '/actions', action.id ]" *ngFor="let action of actionsArray">
         <img [src]="action.picture">
         <div class="top">
             <span>{{ action.date | date: "MM YYYY"}}</span>

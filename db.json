@@ -7,6 +7,22 @@
       "title": "Акція",
       "mainText": "акція акція акція ",
       "picture": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/actions%2F240376-homemade-pepperoni-pizza-Beauty-3x4-1-6ae54059c23348b3b9a703b6a3067a44.jpg?alt=media&token=4919b7bd-0a1c-4457-9c71-6f32f3ee337f"
+    },
+    {
+      "id": 2,
+      "date": "Fri May 05 2023 23:50:01 GMT+0300 (за східноєвропейським літнім часом)",
+      "name": "Акція2",
+      "title": "Акція2",
+      "mainText": "акція2 акція2 акція2",
+      "picture": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/actions%2F240376-homemade-pepperoni-pizza-Beauty-3x4-1-6ae54059c23348b3b9a703b6a3067a44.jpg?alt=media&token=4919b7bd-0a1c-4457-9c71-6f32f3ee337f"
+    },
+    {
+      "id": 3,
+      "date": "Fri May 05 2023 23:50:01 GMT+0300 (за східноєвропейським літнім часом)",
+      "name": "Акція3",
+      "title": "Акція3",
+      "mainText": "акція3 акція3 акція3",
+      "picture": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/actions%2F240376-homemade-pepperoni-pizza-Beauty-3x4-1-6ae54059c23348b3b9a703b6a3067a44.jpg?alt=media&token=4919b7bd-0a1c-4457-9c71-6f32f3ee337f"
     }
   ],
   "categories": [
@@ -37,44 +53,38 @@
   ],
   "products": [
     {
-      "id": 1,
-      "category": "Роли",
-      "name": "test",
-      "path": "test",
-      "ingredients": "test test test",
-      "mass": "9999",
-      "price": "9999",
-      "picturePath": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/categories%2FDragon_Rolls_1024x1024.webp?alt=media&token=2acb3ded-7a36-4552-b105-069f2ac52201"
-    },
-    {
       "id": 2,
-      "category": "Роли",
+      "category": "rolls",
       "name": "Філадельфія з вугрем",
       "path": "    border: 1px solid #000;",
       "ingredients": "Рис, крем сир, авокадо, вугор, унагі соус, кунжут",
       "mass": "280",
       "price": "267",
-      "picturePath": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/categories%2F1.-filadelfiya-z-lososem.jpg.pagespeed.ce.axvTz8qDqj.jpg?alt=media&token=4ccc4f35-ea28-4a7d-bcfd-82d9f339fcff"
+      "picturePath": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/categories%2F1.-filadelfiya-z-lososem.jpg.pagespeed.ce.axvTz8qDqj.jpg?alt=media&token=8c682b2e-f57b-4f1e-9cdf-85f006f83148",
+      "count": 1
     },
     {
       "id": 3,
-      "category": "Роли",
+      "category": "rolls",
       "name": "test",
       "path": "test",
       "ingredients": "testtesttest",
       "mass": "232",
       "price": "123",
-      "picturePath": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/categories%2F1.-filadelfiya-z-lososem.jpg.pagespeed.ce.axvTz8qDqj.jpg?alt=media&token=7f98db24-9c62-4b8f-afc6-39a452823cf7"
+      "picturePath": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/categories%2F1.-filadelfiya-z-lososem.jpg.pagespeed.ce.axvTz8qDqj.jpg?alt=media&token=7f98db24-9c62-4b8f-afc6-39a452823cf7",
+      "count": 1
+      
     },
     {
       "id": 4,
-      "category": "Роли",
+      "category": "rolls",
       "name": "test",
       "path": "test",
       "ingredients": "testtesttest",
       "mass": "222",
       "price": "111",
-      "picturePath": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/categories%2F1.-filadelfiya-z-lososem.jpg.pagespeed.ce.axvTz8qDqj.jpg?alt=media&token=0d1c2982-e891-497e-85a0-b77aa2756f7f"
+      "picturePath": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/categories%2F1.-filadelfiya-z-lososem.jpg.pagespeed.ce.axvTz8qDqj.jpg?alt=media&token=0d1c2982-e891-497e-85a0-b77aa2756f7f",
+      "count": 1
     }
   ]
 }

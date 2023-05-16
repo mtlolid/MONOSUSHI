@@ -14,18 +14,28 @@ import { SetsComponent } from './pages/product-category/sets/sets.component';
 import { DrinksComponent } from './pages/product-category/drinks/drinks.component';
 import { SaucesComponent } from './pages/product-category/sauces/sauces.component';
 import { ProductComponent } from './pages/admin/product/product.component';
+import { ActionsInfoComponent } from './pages/actions-info/actions-info.component';
+import { ActionService } from './shared/services/action/action.service';
+import { ProductCategoryInfoComponent } from './pages/product-category-info/product-category-info.component';
+import { ProductService } from './shared/services/product/product.service';
 
 
 
 const routes: Routes = [
   { path: "", component: MainComponent },
   { path: "actions", component: ActionsComponent },
+  { path: "actions/:id", component: ActionsInfoComponent, resolve: {
+    actionInfo: ActionService
+  } },
   { path: "product-category", component: ProductCategoryComponent, children: [
     { path: "rolls", component: RollsComponent },
     { path: "sets", component: SetsComponent },
     { path: "drinks", component: DrinksComponent },
     { path: "sauces", component: SaucesComponent }
   ] },
+  { path: "product-category/:category/:id", component: ProductCategoryInfoComponent, resolve: {
+    productInfo: ProductService
+  }},
   { path: "dostavka-ta-oplata", component: DostavkaTaOplataComponent },
   { path: "about-us", component: AboutUsComponent },
   {

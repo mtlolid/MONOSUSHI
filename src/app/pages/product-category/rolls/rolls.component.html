@@ -10,9 +10,9 @@
 
 <div class="shop">
     <div class="card" *ngFor="let product of productArray">
-        <img [src]="product.picturePath">
+        <img [src]="product.picturePath" [routerLink]="[ '/product-category/'+product.category, product.id ]">
 
-        <h1>{{ product.name }}</h1>
+        <h1 [routerLink]="[ '/product-category/'+product.category, product.id ]">{{ product.name }}</h1>
 
         <div class="top">
             <p>{{ product.ingredients }}</p>
@@ -22,11 +22,11 @@
         <div class="order">
             <span>{{ product.price }} грн</span>
             <div class="count">
-                <input type="button" value="-">
-                <p>0</p>
-                <input type="button" value="+">
+                <input (click)="productCount(product, false)" type="button" value="-">
+                <p>{{ product.count }}</p>
+                <input (click)="productCount(product, true)" type="button" value="+">
             </div>
-            <input type="button" value="ЗАМОВИТИ">
+            <input (click)="addToBasket(product)" type="button" value="ЗАМОВИТИ">
         </div>
     </div>
 </div>

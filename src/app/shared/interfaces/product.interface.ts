@@ -7,5 +7,6 @@ export interface IProductPost {
     mass: number;
     price: number;
     picturePath: string;
+    count: number;
 }
 

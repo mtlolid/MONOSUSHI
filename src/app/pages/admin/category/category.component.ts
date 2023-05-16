@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ICategoryPost } from 'src/app/shared/category.interface';
-import { DataServiceService } from 'src/app/shared/data-service.service';
+import { ICategoryPost } from 'src/app/shared/interfaces/category.interface';
 import { Storage, getDownloadURL, percentage, ref, uploadBytesResumable } from '@angular/fire/storage';
 import { ImagesService } from 'src/app/shared/images/images.service';
+import { CategoryService } from 'src/app/shared/services/category/category.service';
 
 
 @Component({
@@ -26,7 +26,7 @@ export class CategoryComponent {
 
   constructor(
     private fb: FormBuilder,
-    private categoryService: DataServiceService,
+    private categoryService: CategoryService,
     private imageService: ImagesService,
     private storage: Storage
   ){};

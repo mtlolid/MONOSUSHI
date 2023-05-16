@@ -1,11 +1,25 @@
-*{
+* {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-.adminActive{
+.adminActive {
     border-top: 4px solid #B5D8F7;
     font-weight: bold;
+}
+
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #B5D8F7;
 }
