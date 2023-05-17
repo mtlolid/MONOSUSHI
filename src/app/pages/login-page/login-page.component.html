@@ -1,0 +1,7 @@
+<form [formGroup]="authForm" (ngSubmit)="login()">
+    <label for="login">Логін(пошта)</label>
+    <input formControlName = "login" name="login" type="text">
+    <label for="password">Пароль</label>
+    <input formControlName = "password" name="password" type="password">
+    <input [disabled]="authForm.invalid" class="login" type="submit" value="Увійти">
+</form>

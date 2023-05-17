@@ -28,6 +28,8 @@ import { SaucesComponent } from './pages/product-category/sauces/sauces.componen
 import { ProductComponent } from './pages/admin/product/product.component';
 import { ActionsInfoComponent } from './pages/actions-info/actions-info.component';
 import { ProductCategoryInfoComponent } from './pages/product-category-info/product-category-info.component';
+import { UserCabinetComponent } from './pages/user-cabinet/user-cabinet.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 
 @NgModule({
@@ -50,6 +52,8 @@ import { ProductCategoryInfoComponent } from './pages/product-category-info/prod
     ProductComponent,
     ActionsInfoComponent,
     ProductCategoryInfoComponent,
+    UserCabinetComponent,
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,

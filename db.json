@@ -73,7 +73,6 @@
       "price": "123",
       "picturePath": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/categories%2F1.-filadelfiya-z-lososem.jpg.pagespeed.ce.axvTz8qDqj.jpg?alt=media&token=7f98db24-9c62-4b8f-afc6-39a452823cf7",
       "count": 1
-      
     },
     {
       "id": 4,
@@ -85,6 +84,20 @@
       "price": "111",
       "picturePath": "https://firebasestorage.googleapis.com/v0/b/mymonosushi.appspot.com/o/categories%2F1.-filadelfiya-z-lososem.jpg.pagespeed.ce.axvTz8qDqj.jpg?alt=media&token=0d1c2982-e891-497e-85a0-b77aa2756f7f",
       "count": 1
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "login": "admin@admin.com",
+      "password": "admin",
+      "role": "ADMIN"
+    },
+    {
+      "id": 2,
+      "login": "user@user.com",
+      "password": "user",
+      "role": "USER"
     }
   ]
 }

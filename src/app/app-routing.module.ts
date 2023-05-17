@@ -18,6 +18,10 @@ import { ActionsInfoComponent } from './pages/actions-info/actions-info.componen
 import { ActionService } from './shared/services/action/action.service';
 import { ProductCategoryInfoComponent } from './pages/product-category-info/product-category-info.component';
 import { ProductService } from './shared/services/product/product.service';
+import { AdminGuard } from './shared/guards/admin/admin.guard';
+import { UserCabinetComponent } from './pages/user-cabinet/user-cabinet.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { UserGuard } from './shared/guards/user/user.guard';
 
 
 
@@ -39,15 +43,15 @@ const routes: Routes = [
   { path: "dostavka-ta-oplata", component: DostavkaTaOplataComponent },
   { path: "about-us", component: AboutUsComponent },
   {
-    path: "admin", component: AdminComponent, children: [
+    path: "admin", component: AdminComponent, canActivate:[AdminGuard],children: [
       { path: "actions", component: ActionComponent },
       { path: "category", component: CategoryComponent },
       { path: "product", component: ProductComponent },
       { path: '', pathMatch: 'full', redirectTo: 'category' }
     ]
   },
-
-
+  { path: "login-page", component: LoginPageComponent },
+  { path: "user-cabinet", canActivate:[UserGuard], component: UserCabinetComponent }
 ];
 
 @NgModule({
