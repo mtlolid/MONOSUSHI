@@ -1,4 +1,14 @@
-<div>
-    <span>Вітаю {{ curentUserEmail }}!</span>
-    <input class="exit" (click)="logout()" type="button" value="ВИХІД">
+<div class="wrap">
+    <div class="left">
+        <div [routerLink]="[ 'user-data' ]" [routerLinkActive]="['adminActive']" class="option">
+            <p>Акції</p>
+        </div>
+        <div [routerLink]="[ 'orders' ]" [routerLinkActive]="['adminActive']" class="option">
+            <p>Категорії</p>
+        </div>
+        <input class="exit" (click)="logout()" type="button" value="ВИХІД">
+    </div>
+
+    <router-outlet></router-outlet>
+
 </div>

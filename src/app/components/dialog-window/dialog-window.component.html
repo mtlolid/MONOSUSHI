@@ -1,0 +1,28 @@
+<div>
+  <input type="button" (click)="closeDialog()" value="✖">
+</div>
+
+
+<form *ngIf="!registerStatus" [formGroup]="authForm" (ngSubmit)="loginUser()">
+  <h2>Вхід в кабінет</h2>
+  <input formControlName = "email" name="login" type="text" placeholder="*Ваш email">
+  <input formControlName = "password" name="password" type="password" placeholder="*Ваш пароль">
+  <input [disabled]="authForm.invalid" class="login" type="submit" value="УВІЙТИ В КАБІНЕТ">
+  <input (click)="changeRegister()"  class="register" type="submit" value="Зареєструватися">
+</form>
+
+<form *ngIf="registerStatus" [formGroup]="regForm" (ngSubmit)="registerUser()">
+  <h2>Зареєструватися</h2>
+  <div>
+    <input formControlName = "firstName" type="text" placeholder="Ваш ім'я">
+    <input formControlName = "lastName" type="text" placeholder="Ваш прізвище">
+  </div>
+  <input formControlName = "phone" type="text" placeholder="Ваш телефон">
+  <input formControlName = "email" type="text" placeholder="Ваш email">
+  <div>
+    <input formControlName = "password" type="password" placeholder="Ваш пароль">
+    <input formControlName = "passwordCheck" type="password" placeholder="Повторіть пароль">
+  </div>
+  <input [disabled]="regForm.invalid" class="login" type="submit" value="ЗАРЕЄСТРУВАТИСЯ">
+  <input (click)="changeRegister()" class="register" type = "button" value="Вже зареєстовані? Увійти">
+</form>

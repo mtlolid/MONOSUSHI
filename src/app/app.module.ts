@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,6 +31,16 @@ import { ActionsInfoComponent } from './pages/actions-info/actions-info.componen
 import { ProductCategoryInfoComponent } from './pages/product-category-info/product-category-info.component';
 import { UserCabinetComponent } from './pages/user-cabinet/user-cabinet.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { DialogWindowComponent } from './components/dialog-window/dialog-window.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { ToastrModule } from 'ngx-toastr';
+
+import { UserDataComponent } from './pages/user-cabinet/user-data/user-data.component';
+import { OrdersComponent } from './pages/user-cabinet/orders/orders.component';
+import { SharedModule } from './shared/modules/shared.module';
+
 
 
 @NgModule({
@@ -54,8 +65,12 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     ProductCategoryInfoComponent,
     UserCabinetComponent,
     LoginPageComponent,
+    DialogWindowComponent,
+    UserDataComponent,
+    OrdersComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -63,6 +78,11 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage()),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

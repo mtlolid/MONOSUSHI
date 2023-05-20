@@ -90,13 +90,13 @@
     {
       "id": 1,
       "login": "admin@admin.com",
-      "password": "admin",
+      "password": "admin123",
       "role": "ADMIN"
     },
     {
       "id": 2,
       "login": "user@user.com",
-      "password": "user",
+      "password": "user1234",
       "role": "USER"
     }
   ]

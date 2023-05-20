@@ -1,11 +1,13 @@
 import { AccountService } from './../../shared/services/account/account.service';
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { ROLE } from 'src/app/shared/costants/roles.enum';
 import { ICategoryPost } from 'src/app/shared/interfaces/category.interface';
 import { IProductPost } from 'src/app/shared/interfaces/product.interface';
 import { OrderService } from 'src/app/shared/order/order.service';
 import { CategoryService } from 'src/app/shared/services/category/category.service';
+import { DialogWindowComponent } from '../dialog-window/dialog-window.component';
 
 @Component({
   selector: 'app-header',
@@ -27,7 +29,8 @@ export class HeaderComponent {
     private categoryService: CategoryService,
     private orderService: OrderService,
     private activatedRoute: ActivatedRoute,
-    private accountService: AccountService
+    private accountService: AccountService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -96,7 +99,6 @@ export class HeaderComponent {
       this.loginUrl = 'user-cabinet';
     } else {
       this.isLogin = false;
-      this.loginUrl = 'login-page';
     }
   }
 
@@ -104,6 +106,14 @@ export class HeaderComponent {
     this.accountService.isUserLogin$.subscribe(() => {
       this.checkUserLogin();
     })
+  }
+
+  openDialog() {
+    this.dialog.open(DialogWindowComponent, {
+      backdropClass: 'dialog-back',
+      panelClass: 'auth-dialog',
+      autoFocus: false
+    });
   }
 
 }

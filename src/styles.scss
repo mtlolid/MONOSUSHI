@@ -23,3 +23,8 @@
 ::-webkit-scrollbar-thumb {
     background: #B5D8F7;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@import 'app/shared/styles/theme-material';

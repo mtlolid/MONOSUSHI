@@ -44,7 +44,8 @@
             <b>(097) 878 08 37</b>
             <P>Працюємо з <b>11:00</b> до <b>23:59</b></P>
         </div>
-        <div class="login" [routerLink]="['/'+loginUrl]"></div>
+        <div class="login" *ngIf="!isLogin" (click)="openDialog()"></div>
+        <div class="login" *ngIf="isLogin" [routerLink]="[loginUrl]"></div>
     </div>
 
     <div class="checkout" (click)="checkOutToggle()">
@@ -59,7 +60,14 @@
     </div>
 
     <div class="bucketWrap" *ngIf="checkOutCheck">
+        
+
         <div class="bucket">
+            <div *ngIf="basket.length == 0" class="empty">
+                <img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/icons/cart-empty-img.svg">
+                <p>Кошик порожній</p>
+                <input [routerLink]="[ '/product-category/rolls']" type="button" value="ПЕРЕЙТИ ДО КАТАЛОГУ">
+            </div>
             <div *ngFor="let product of basket" class="product">
                 <img [src]="product.picturePath">
                 <b>{{ product.name }}</b>
@@ -73,7 +81,7 @@
             </div>
             <div class="checkout">
                 <p>Сума: <b>{{ total }}</b> грн</p>
-                <input type="button" value="ОФОРМИТИ ЗАМОВЛЕННЯ">
+                <input [disabled]="basket.length == 0" type="button" value="ОФОРМИТИ ЗАМОВЛЕННЯ">
             </div>
         </div>
     </div>

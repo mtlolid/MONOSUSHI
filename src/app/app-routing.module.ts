@@ -22,28 +22,37 @@ import { AdminGuard } from './shared/guards/admin/admin.guard';
 import { UserCabinetComponent } from './pages/user-cabinet/user-cabinet.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { UserGuard } from './shared/guards/user/user.guard';
+import { UserDataComponent } from './pages/user-cabinet/user-data/user-data.component';
+import { OrdersComponent } from './pages/user-cabinet/orders/orders.component';
+
 
 
 
 const routes: Routes = [
   { path: "", component: MainComponent },
   { path: "actions", component: ActionsComponent },
-  { path: "actions/:id", component: ActionsInfoComponent, resolve: {
-    actionInfo: ActionService
-  } },
-  { path: "product-category", component: ProductCategoryComponent, children: [
-    { path: "rolls", component: RollsComponent },
-    { path: "sets", component: SetsComponent },
-    { path: "drinks", component: DrinksComponent },
-    { path: "sauces", component: SaucesComponent }
-  ] },
-  { path: "product-category/:category/:id", component: ProductCategoryInfoComponent, resolve: {
-    productInfo: ProductService
-  }},
+  {
+    path: "actions/:id", component: ActionsInfoComponent, resolve: {
+      actionInfo: ActionService
+    }
+  },
+  {
+    path: "product-category", component: ProductCategoryComponent, children: [
+      { path: "rolls", component: RollsComponent },
+      { path: "sets", component: SetsComponent },
+      { path: "drinks", component: DrinksComponent },
+      { path: "sauces", component: SaucesComponent }
+    ]
+  },
+  {
+    path: "product-category/:category/:id", component: ProductCategoryInfoComponent, resolve: {
+      productInfo: ProductService
+    }
+  },
   { path: "dostavka-ta-oplata", component: DostavkaTaOplataComponent },
   { path: "about-us", component: AboutUsComponent },
   {
-    path: "admin", component: AdminComponent, canActivate:[AdminGuard],children: [
+    path: "admin", component: AdminComponent, canActivate: [AdminGuard], children: [
       { path: "actions", component: ActionComponent },
       { path: "category", component: CategoryComponent },
       { path: "product", component: ProductComponent },
@@ -51,7 +60,13 @@ const routes: Routes = [
     ]
   },
   { path: "login-page", component: LoginPageComponent },
-  { path: "user-cabinet", canActivate:[UserGuard], component: UserCabinetComponent }
+  {
+    path: "user-cabinet",component: UserCabinetComponent, canActivate: [UserGuard], children: [
+      { path: "user-data", component: UserDataComponent },
+      { path: "orders", component: OrdersComponent },
+      { path: '', pathMatch: 'full', redirectTo: 'user-data' }
+    ]
+  }
 ];
 
 @NgModule({

@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class AccountService {
 
   public isUserLogin$ = new Subject<boolean>();
+  public isLogined = false;
   private url = "http://localhost:3000/users";
 
   constructor(
