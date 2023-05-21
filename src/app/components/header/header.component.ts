@@ -1,4 +1,4 @@
-import { AccountService } from './../../shared/services/account/account.service';
+import { AccountService } from '../../shared/services/account/account.service';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
@@ -80,14 +80,24 @@ export class HeaderComponent {
   productCount(product: IProductPost, value: boolean): void {
     if (value) {
       ++product.count;
+      localStorage.setItem('basket', JSON.stringify(this.basket));
       this.getTotalPrice();
       this.updateBasket();
     } else if (!value && product.count > 1) {
       --product.count;
+      localStorage.setItem('basket', JSON.stringify(this.basket));
       this.getTotalPrice();
       this.updateBasket();
     }
   };
+
+  productDelete(product: IProductPost): void {
+    this.basket.splice(this.basket.indexOf(product), 1);
+    localStorage.setItem('basket', JSON.stringify(this.basket));
+    this.getTotalPrice();
+    this.updateBasket();
+  };
+
 
   checkUserLogin(): void {
     const currentUser = JSON.parse(localStorage.getItem('currentUser') as string);

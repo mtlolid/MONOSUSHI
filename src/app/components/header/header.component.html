@@ -10,7 +10,7 @@
         </div>
 
         <div [routerLink]="[ goTo(category.path) || null ]" *ngFor="let category of categoryArray" class="category">
-            <div><img [routerLink]="[ 'category.path']" [src]="category.picture"></div>
+            <div><img [src]="category.picture"></div>
             <p>{{ category.name }}</p>
         </div>
 
@@ -60,7 +60,7 @@
     </div>
 
     <div class="bucketWrap" *ngIf="checkOutCheck">
-        
+
 
         <div class="bucket">
             <div *ngIf="basket.length == 0" class="empty">
@@ -77,7 +77,7 @@
                     <input (click)="productCount(product, true)" type="button" value="+">
                 </div>
                 <p><b>{{ product.price * product.count }}</b> грн</p>
-                <img class="bin" src="https://cdn-icons-png.flaticon.com/512/3515/3515498.png">
+                <img (click)="productDelete(product)" class="bin" src="https://cdn-icons-png.flaticon.com/512/3515/3515498.png">
             </div>
             <div class="checkout">
                 <p>Сума: <b>{{ total }}</b> грн</p>

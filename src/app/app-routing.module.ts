@@ -1,76 +1,54 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 
-import { ActionsComponent } from './pages/actions/actions.component';
-import { ProductCategoryComponent } from './pages/product-category/product-category.component';
-import { DostavkaTaOplataComponent } from './pages/dostavka-ta-oplata/dostavka-ta-oplata.component';
-import { AboutUsComponent } from './pages/about-us/about-us.component';
-import { AdminComponent } from './pages/admin/admin.component';
-import { ActionComponent } from './pages/admin/action/action.component';
-import { MainComponent } from './pages/main/main.component';
-import { CategoryComponent } from './pages/admin/category/category.component';
-import { RollsComponent } from './pages/product-category/rolls/rolls.component';
-import { SetsComponent } from './pages/product-category/sets/sets.component';
-import { DrinksComponent } from './pages/product-category/drinks/drinks.component';
-import { SaucesComponent } from './pages/product-category/sauces/sauces.component';
-import { ProductComponent } from './pages/admin/product/product.component';
-import { ActionsInfoComponent } from './pages/actions-info/actions-info.component';
-import { ActionService } from './shared/services/action/action.service';
-import { ProductCategoryInfoComponent } from './pages/product-category-info/product-category-info.component';
-import { ProductService } from './shared/services/product/product.service';
-import { AdminGuard } from './shared/guards/admin/admin.guard';
 import { UserCabinetComponent } from './pages/user-cabinet/user-cabinet.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { UserGuard } from './shared/guards/user/user.guard';
 import { UserDataComponent } from './pages/user-cabinet/user-data/user-data.component';
 import { OrdersComponent } from './pages/user-cabinet/orders/orders.component';
 
+import { UserGuard } from './shared/guards/user/user.guard';
+import { AdminGuard } from './shared/guards/admin/admin.guard';
 
 
 
 const routes: Routes = [
-  { path: "", component: MainComponent },
-  { path: "actions", component: ActionsComponent },
   {
-    path: "actions/:id", component: ActionsInfoComponent, resolve: {
-      actionInfo: ActionService
-    }
+    path: '',
+    loadChildren: () => import('./pages/main/main.module').then(m => m.MainModule)
   },
   {
-    path: "product-category", component: ProductCategoryComponent, children: [
-      { path: "rolls", component: RollsComponent },
-      { path: "sets", component: SetsComponent },
-      { path: "drinks", component: DrinksComponent },
-      { path: "sauces", component: SaucesComponent }
-    ]
+    path: 'actions',
+    loadChildren: () => import('./pages/actions/actions.module').then(m => m.ActionsModule)
   },
   {
-    path: "product-category/:category/:id", component: ProductCategoryInfoComponent, resolve: {
-      productInfo: ProductService
-    }
+    path: 'product-category',
+    loadChildren: () => import('./pages/product-category/product-category.module').then(m => m.ProductCategoryModule)
   },
-  { path: "dostavka-ta-oplata", component: DostavkaTaOplataComponent },
-  { path: "about-us", component: AboutUsComponent },
   {
-    path: "admin", component: AdminComponent, canActivate: [AdminGuard], children: [
-      { path: "actions", component: ActionComponent },
-      { path: "category", component: CategoryComponent },
-      { path: "product", component: ProductComponent },
-      { path: '', pathMatch: 'full', redirectTo: 'category' }
-    ]
+    path: 'dostavka-ta-oplata',
+    loadChildren: () => import('./pages/dostavka-ta-oplata/dostavka-ta-oplata.module').then(m => m.DostavkaTaOplataModule)
   },
-  { path: "login-page", component: LoginPageComponent },
   {
-    path: "user-cabinet",component: UserCabinetComponent, canActivate: [UserGuard], children: [
-      { path: "user-data", component: UserDataComponent },
-      { path: "orders", component: OrdersComponent },
-      { path: '', pathMatch: 'full', redirectTo: 'user-data' }
-    ]
+    path: 'about-us',
+    loadChildren: () => import('./pages/about-us/about-us.module').then(m => m.AboutUsModule)
+  },
+  {
+    path: 'admin',
+    canActivate: [AdminGuard],
+    loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule)
+  },
+  {
+    path: 'login-page',
+    loadChildren: () => import('./pages/login-page/login-page.module').then(m => m.LoginPageModule)
+  },
+  {
+    path: 'user-cabinet',
+    loadChildren: () => import('./pages/user-cabinet/user-cabinet.module').then(m => m.UserCabinetModule)
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
