@@ -6,6 +6,10 @@
         <div [routerLink]="[ 'orders' ]" [routerLinkActive]="['adminActive']" class="option">
             <p>Історія замовлень</p>
         </div>
+        <div [routerLink]="[ 'password-change' ]" [routerLinkActive]="['adminActive']" class="option">
+            <p>Зміна паролю</p>
+        </div>
+        
         <input class="exit" (click)="logout()" type="button" value="ВИХІД">
     </div>
 

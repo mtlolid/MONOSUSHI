@@ -8,6 +8,7 @@ import { IProductPost } from 'src/app/shared/interfaces/product.interface';
 import { OrderService } from 'src/app/shared/order/order.service';
 import { CategoryService } from 'src/app/shared/services/category/category.service';
 import { DialogWindowComponent } from '../dialog-window/dialog-window.component';
+import { PhoneComponent } from '../phone/phone.component';
 
 @Component({
   selector: 'app-header',
@@ -120,6 +121,14 @@ export class HeaderComponent {
 
   openDialog() {
     this.dialog.open(DialogWindowComponent, {
+      backdropClass: 'dialog-back',
+      panelClass: 'auth-dialog',
+      autoFocus: false
+    });
+  }
+
+  openPhoneDialog() {
+    this.dialog.open(PhoneComponent, {
       backdropClass: 'dialog-back',
       panelClass: 'auth-dialog',
       autoFocus: false

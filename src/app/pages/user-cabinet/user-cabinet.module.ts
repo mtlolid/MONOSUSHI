@@ -7,12 +7,14 @@ import { UserDataComponent } from "./user-data/user-data.component";
 
 import { SharedModule } from "../../shared/modules/shared.module";
 import { UserCabinetRoutingModule } from "./user-cabinet-routing.module";
+import { PasswordChangeComponent } from './password-change/password-change.component';
 
 @NgModule({
   declarations: [
     UserCabinetComponent,
     OrdersComponent,
-    UserDataComponent
+    UserDataComponent,
+    PasswordChangeComponent
   ],
   imports: [
     CommonModule,

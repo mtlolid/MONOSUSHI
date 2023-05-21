@@ -22,13 +22,15 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { ToastrModule } from 'ngx-toastr';
 
 import { SharedModule } from './shared/modules/shared.module';
+import { PhoneComponent } from './components/phone/phone.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    DialogWindowComponent
+    DialogWindowComponent,
+    PhoneComponent
   ],
   imports: [
     CommonModule,

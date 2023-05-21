@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { Firestore, doc, docData, setDoc } from '@angular/fire/firestore';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
@@ -28,6 +28,7 @@ export class DialogWindowComponent {
   public registerStatus = false;
   public authForm !: FormGroup;
   public regForm !: FormGroup;
+  public checkPassword = false;
 
   ngOnInit(): void {
     this.initAuthForm()
@@ -113,6 +114,27 @@ export class DialogWindowComponent {
       role: 'USER'
     };
     setDoc(doc(this.afs, 'users', credential.user.uid), user);
+  }
+
+  checkConfirmedPassword(): void {
+    this.checkPassword = this.password.value === this.confirmed.value;
+    if(this.password.value !== this.confirmed.value) {
+      this.regForm.controls['passwordCheck'].setErrors({
+        matchError: 'Password confirmation doesnt match'
+      })
+    }
+  }
+
+  get password(): AbstractControl {
+    return this.regForm.controls['password'];
+  }
+
+  get confirmed(): AbstractControl {
+    return this.regForm.controls['passwordCheck'];
+  }
+
+  checkVisibilityError(control: string, name: string): boolean | null {
+    return this.regForm.controls[control].errors?.[name]
   }
 
 }
