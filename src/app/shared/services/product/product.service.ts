@@ -9,7 +9,7 @@ import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/r
 })
 export class ProductService implements Resolve<IProductPost> {
 
-  private url = "http://localhost:3000/products";
+  public url = "http://localhost:3000/products";
 
   constructor(
     private http: HttpClient

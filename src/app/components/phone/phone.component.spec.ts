@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PhoneComponent } from './phone.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 
 describe('PhoneComponent', () => {
   let component: PhoneComponent;
@@ -8,7 +10,14 @@ describe('PhoneComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PhoneComponent ]
+      declarations: [ PhoneComponent ],
+      imports: [ 
+        HttpClientModule,
+        MatDialogModule 
+      ],
+      providers: [
+        { provide: MatDialogRef, useValue: {} }
+      ]
     })
     .compileComponents();
 

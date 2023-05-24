@@ -10,7 +10,7 @@ export class AccountService {
 
   public isUserLogin$ = new Subject<boolean>();
   public isLogined = false;
-  private url = "http://localhost:3000/users";
+  public url = "http://localhost:3000/users";
 
   constructor(
     private http: HttpClient

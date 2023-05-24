@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ActionComponent } from './action.component';
+import { HttpClientModule } from '@angular/common/http';
+import { Storage } from '@angular/fire/storage';
+
 
 describe('ActionComponent', () => {
   let component: ActionComponent;
@@ -8,7 +11,11 @@ describe('ActionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ActionComponent ]
+      declarations: [ ActionComponent ],
+      imports: [ HttpClientModule ],
+      providers: [ 
+        {provide: Storage, useValue: {}} 
+      ]
     })
     .compileComponents();
 

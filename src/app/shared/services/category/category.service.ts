@@ -8,7 +8,7 @@ import { ICategoryPost } from '../../interfaces/category.interface';
 })
 export class CategoryService {
 
-  private url = "http://localhost:3000/categories";
+  public url = "http://localhost:3000/categories";
 
   constructor(
     private http: HttpClient

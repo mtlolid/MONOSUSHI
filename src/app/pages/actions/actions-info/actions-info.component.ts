@@ -1,3 +1,4 @@
+import { async } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IActionPost } from 'src/app/shared/interfaces/action.interface';
@@ -18,6 +19,10 @@ export class ActionsInfoComponent {
   ){}
 
   ngOnInit(): void {
+    this.getAction()
+  }
+
+  getAction(): void{
     this.activatedRoute.data.subscribe(response => {
       this.currentAction = response['actionInfo'];
     }) 

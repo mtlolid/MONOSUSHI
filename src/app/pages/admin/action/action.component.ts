@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IActionPost } from 'src/app/shared/interfaces/action.interface';
 import { Storage, getDownloadURL, percentage, ref, uploadBytesResumable } from '@angular/fire/storage';
-import { ImagesService } from 'src/app/shared/images/images.service';
 import { ActionService } from 'src/app/shared/services/action/action.service';
+import { ImagesService } from 'src/app/shared/images/images.service';
+
 
 @Component({
   selector: 'app-action',

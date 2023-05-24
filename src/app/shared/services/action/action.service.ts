@@ -9,7 +9,7 @@ import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/r
 })
 export class ActionService implements Resolve<IActionPost> {
 
-  private url = "http://localhost:3000/actions";
+  public url = "http://localhost:3000/actions";
 
   constructor(
     private http: HttpClient

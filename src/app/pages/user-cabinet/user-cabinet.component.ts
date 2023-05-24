@@ -29,7 +29,6 @@ export class UserCabinetComponent {
 
   getCurentUser() : void{
     const curentUser = JSON.parse(localStorage.getItem('currentUser') as string); 
-    this.curentUserEmail = curentUser.login;
   }
 
 }

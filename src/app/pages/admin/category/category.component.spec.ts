@@ -1,6 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CategoryComponent } from './category.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { Auth } from '@angular/fire/auth';
+import { Firestore } from '@angular/fire/firestore';
+import { Storage } from '@angular/fire/storage';
+
+
 
 describe('CategoryComponent', () => {
   let component: CategoryComponent;
@@ -8,7 +15,17 @@ describe('CategoryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CategoryComponent ]
+      declarations: [ CategoryComponent ],
+      imports: [
+        HttpClientModule,
+        AngularFireStorageModule
+      ],
+      providers: [
+        { provide: Auth, useValue: {} },
+        { provide: Firestore, useValue: {} },
+        { provide: Storage, useValue: {} }
+      ]
+
     })
     .compileComponents();
 

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IProductPost } from 'src/app/shared/interfaces/product.interface';
 import { OrderService } from 'src/app/shared/order/order.service';
-import { ActionService } from 'src/app/shared/services/action/action.service';
 
 @Component({
   selector: 'app-product-category-info',
